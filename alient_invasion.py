@@ -4,13 +4,14 @@ from settings import Settings
 from ship import Ship
 from bullet import Bullet
 
+
 class AlienInvasion:
 
     def __init__(self):
         pygame.init()
         self.settings = Settings()
 
-        #self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        # self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
         self.settings.screen_height = self.screen.get_rect().height
@@ -79,8 +80,7 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
 
+
 if __name__ == '__main__':
     ai = AlienInvasion()
     ai.run_game()
-
-
