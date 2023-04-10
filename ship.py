@@ -11,7 +11,8 @@ class Ship:
         self.screen_rect = ai_game.screen.get_rect()
 
         # Завантажити зображення корабля та отримати його rect
-        self.image = pygame.image.load('images/ship_small_2.png')
+        self.image = pygame.transform.scale(pygame.image.load('images\\PngItem_3021780.png').convert_alpha() , (50,90))
+        # pygame.transform.scale(pygame.image.load('images\\PngItem_3021780.png').convert_alpha() , (100,180))
         self.rect = self.image.get_rect()
 
         # Створювати кожен новий корабель внизу єкрана по центру
@@ -25,7 +26,7 @@ class Ship:
         self.moving_left = False
 
     def update(self):
-        "Оновити поточну позицію корабля на основі індикатора руху"
+        """Оновити поточну позицію корабля на основі індикатора руху"""
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
         if self.moving_left and self.rect.left > 0:
@@ -34,5 +35,5 @@ class Ship:
         self.rect.x = self.x
 
     def blitme(self):
-        "Намалювати корабель у його поточному розташуванні"
+        """Намалювати корабель у його поточному розташуванні"""
         self.screen.blit(self.image, self.rect)
